@@ -38,8 +38,6 @@
 </template>
 
 <script>
-import Axios from 'axios';
-
 export default {
     computed: {
         titleState() {
@@ -63,7 +61,7 @@ export default {
         submitPost : function() {
             // TODO: Should validate the form first here (maybe an future dependency)
 
-            Axios.post('https://jsonplaceholder.typicode.com/posts', {
+            this.Axios.post('https://jsonplaceholder.typicode.com/posts', {
                 title: this.blog.title,
                 body: this.blog.content,
                 userId: 1
