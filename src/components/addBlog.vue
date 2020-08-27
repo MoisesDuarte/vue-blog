@@ -22,9 +22,9 @@
         </b-form>
 
         <!-- Blog Posting Preview -->
-        <b-card header="Blog Preview" :title="blog.title" :subTitle="blog.selectedCategories.join(', ')">
+        <b-card header="Blog Preview" :title="blog.title" :subTitle="blog.selectedAuthor">
             <b-card-text>
-                <p class="text-muted">Authored by {{ blog.selectedAuthor }}</p>
+                <p><b-badge pill variant="primary" v-for="category in blog.selectedCategories" :key="category">{{ category }}</b-badge></p>
                 <p>{{ blog.content }}</p>
             </b-card-text>
         </b-card>
