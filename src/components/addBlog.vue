@@ -2,7 +2,7 @@
     <b-container fluid class="mt-4">   
         <!-- Blog Posting Form -->
         <h2 class="lead text-center">Add a New Blog Post</h2>
-        <b-form> 
+        <b-form v-if="!blog.submitted"> 
             <!-- Title -->
             <b-form-group label="Blog Title:" label-for="blog-title">
                 <b-form-input id="blog-title" v-model="blog.title" :state="titleState" lazy required></b-form-input>
@@ -22,6 +22,9 @@
             <!-- Submit Button -->
             <b-button block variant="success" v-on:click.prevent="submitPost">Add Blog</b-button>
         </b-form>
+
+        <!-- Add Request Success Alert -->
+        <b-alert v-if="blog.submitted" show variant="success">Blog posted sucessfully!</b-alert>
 
         <!-- Blog Posting Preview -->
         <b-card class="mt-3" header="Blog Preview" :title="blog.title" :subTitle="blog.selectedAuthor">
@@ -79,8 +82,9 @@ export default {
             .catch((err) => {
                 console.log(err);
             })
-            .then((response) => {
+            .then(response => {
                 console.log(response);
+                this.blog.submitted = true;
             })
         }
     }
