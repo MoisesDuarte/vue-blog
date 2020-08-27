@@ -64,16 +64,18 @@ export default {
                     { value: "M. Duarte", text: 'Moisés Duarte' },
                     { value: "I. Lafayette", text: 'Ilia Lafayette' },
                     { value: "Anon", text: 'Anonymous' },
-                ]
+                ],
+                submitted: false,
             }
         }
     },
     methods: {
         submitPost : function() {
-            let url = '';
-            let data = {};
-
-            Axios.post(url, data)
+            Axios.post('https://jsonplaceholder.typicode.com/posts', {
+                title: this.blog.title,
+                body: this.blog.content,
+                userId: 1
+            })
             .catch((err) => {
                 console.log(err);
             })
