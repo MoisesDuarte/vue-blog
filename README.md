@@ -1,24 +1,12 @@
 # vue-blog
 
-## Project setup
-```
-npm install
-```
+## Description
+Blog layout made in Vue.js, utilizing the BootstrapVue component library
 
-### Compiles and hot-reloads for development
+## Commands
 ```
-npm run serve
+npm install   (Install dependencies)
+npm run serve (Run development server)
+npm run build (Build for production)
+npm run lint  (Lints and fixes files)
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
