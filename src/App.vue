@@ -1,27 +1,12 @@
 <template>
   <div>
-    <add-blog></add-blog>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/add">Add Post</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
 
-<script>
-import addBlog from './components/addBlog.vue';
-
-export default {
-  components: {
-    'add-blog': addBlog
-  },
-  data() {
-    return {
-
-    }
-  },
-  methods: {
-    
-  }
-}
-</script>
-
 <style>
-
 </style>
