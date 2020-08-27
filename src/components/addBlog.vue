@@ -2,7 +2,7 @@
     <b-container fluid class="mt-4">   
         <!-- BLOG POSTING FORM -->
         <h2 class="lead text-center">Add a New Blog Post</h2>
-        <b-form v-if="!blog.submitted"> 
+        <b-form v-if="!submitted"> 
             <!-- Title -->
             <b-form-group label="Blog Title:" label-for="blog-title">
                 <b-form-input id="blog-title" v-model="blog.title" :state="titleState" lazy required></b-form-input>
@@ -28,7 +28,7 @@
         </b-form>
 
         <!-- REQUEST SUCCESS ALERT -->
-        <b-alert v-if="blog.submitted" show variant="success">Blog posted sucessfully!</b-alert>
+        <b-alert v-if="submitted" show variant="success">Blog posted sucessfully!</b-alert>
 
         <!-- PREVIEW CARD -->
         <b-card class="mt-3" header="Blog Preview" :title="blog.title" :subTitle="blog.selectedAuthor">
@@ -77,7 +77,7 @@ export default {
             })
             .then(response => {
                 console.log(response);
-                this.blog.submitted = true;
+                this.submitted = true;
             })
         }
     }
