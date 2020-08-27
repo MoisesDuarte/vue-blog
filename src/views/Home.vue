@@ -11,6 +11,15 @@
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Home',
+  created() {
+    this.Axios.get('https://jsonplaceholder.typicode.com/posts')
+    .catch(err => {
+      console.log(err);
+    })
+    .then(response => {
+      console.log(response);
+    })
+  }
 }
 </script>
