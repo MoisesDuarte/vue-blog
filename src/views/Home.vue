@@ -13,7 +13,7 @@
 export default {
   name: 'Home',
   created() {
-    this.Axios.get('https://jsonplaceholder.typicode.com/posts')
+    this.Axios.get('http://localhost:3000/posts')
     .catch(err => {
       console.log(err);
     })

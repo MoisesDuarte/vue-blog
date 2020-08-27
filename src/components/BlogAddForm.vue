@@ -60,12 +60,19 @@ export default {
     methods: {
         submitPost : function() {
             // TODO: Should validate the form first here (maybe an future dependency)
-
-            this.Axios.post('https://jsonplaceholder.typicode.com/posts', {
+            let data = {
                 title: this.blog.title,
-                body: this.blog.content,
-                userId: 1
-            })
+                author: this.blog.selectedAuthor,
+                categories: this.blog.selectedCategories,
+                content: this.blog.content
+            }
+
+            let headers = {
+                'Content-Type': 'application/json;charset=UTF-8',
+                "Access-Control-Allow-Origin": "*"
+            }
+
+            this.Axios.post('http://localhost:3000/posts', data, headers)
             .catch((err) => {
                 console.log(err);
             })
