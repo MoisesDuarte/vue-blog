@@ -8,9 +8,9 @@
                 <b-form-input id="blog-title" v-model="blog.title" :state="titleState" lazy required></b-form-input>
             </b-form-group>
 
-            <!-- Content -->
-            <b-form-group label="Blog Content:" label-for="blog-content">
-                <b-form-textarea id="blog-content" size="sm" v-model="blog.content" :state="contentState" lazy required></b-form-textarea>
+            <!-- Author -->
+            <b-form-group label="Author:">
+                <b-form-select v-model="blog.selectedAuthor" :options="authors"></b-form-select>
             </b-form-group>
 
             <!-- Category -->
@@ -18,13 +18,15 @@
                 <b-form-checkbox-group id="blog-category" v-model="blog.selectedCategories" :options="categories"></b-form-checkbox-group>
             </b-form-group>
 
-            <!-- Author -->
-            <b-form-group label="Author:">
-                <b-form-select v-model="blog.selectedAuthor" :options="authors"></b-form-select>
+            <!-- Content -->
+            <b-form-group label="Blog Content:" label-for="blog-content">
+                <b-form-textarea id="blog-content" size="sm" v-model="blog.content" lazy required></b-form-textarea>
             </b-form-group>
             
             <!-- Submit Button -->
-            <b-button block variant="success" v-on:click.prevent="submitPost">Add Blog</b-button>
+            <b-button class="mr-2" variant="success" v-on:click.prevent="submitPost">Submit</b-button>
+            <b-button type="reset" variant="danger" v-on:click.prevent="resetPost">Reset</b-button>
+            
         </b-form>
 
         <!-- REQUEST SUCCESS ALERT -->
@@ -48,17 +50,14 @@ export default {
         titleState() {
             return this.blog.title.length > 2 ? true : false;
         },
-        contentState() {
-            return this.blog.content.length > 2 ? true : false;
-        }
     },
     data() {
         return {
             blog: {
                 title: '',
-                content: '',
+                selectedAuthor: null,   
                 selectedCategories: [],
-                selectedAuthor: null,           
+                content: '',              
             },
             categories: ['Urban', 'Pastoral', 'Horror', 'Thriller', 'Magical-Realism'],
             authors: ['Moisés Duarte', 'Ilia Lafayette', 'Anonymous'],
@@ -67,6 +66,8 @@ export default {
     },
     methods: {
         submitPost : function() {
+            // TODO: Should validate the form first here
+
             Axios.post('https://jsonplaceholder.typicode.com/posts', {
                 title: this.blog.title,
                 body: this.blog.content,
@@ -79,6 +80,13 @@ export default {
                 console.log(response);
                 this.submitted = true;
             })
+        },
+        resetPost : function() {
+
+            this.blog.title = '';
+            this.blog.selectedAuthor = null;
+            this.blog.selectedCategories = [];
+            this.blog.content = '';
         }
     }
 }
