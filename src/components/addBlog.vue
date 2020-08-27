@@ -19,10 +19,12 @@
             <b-form-group label="Author:">
                 <b-form-select v-model="blog.selectedAuthor" :options="blog.authors"></b-form-select>
             </b-form-group>
+            <!-- Submit Button -->
+            <b-button block variant="success" v-on:click.prevent="submitPost">Add Blog</b-button>
         </b-form>
 
         <!-- Blog Posting Preview -->
-        <b-card header="Blog Preview" :title="blog.title" :subTitle="blog.selectedAuthor">
+        <b-card class="mt-3" header="Blog Preview" :title="blog.title" :subTitle="blog.selectedAuthor">
             <b-card-text>
                 <p><b-badge pill variant="primary" v-for="category in blog.selectedCategories" :key="category">{{ category }}</b-badge></p>
                 <p>{{ blog.content }}</p>
@@ -32,39 +34,55 @@
 </template>
 
 <script>
-    export default {
-        computed: {
-            titleState() {
-                return this.blog.title.length > 2 ? true : false;
-            },
-            contentState() {
-                return this.blog.content.length > 2 ? true : false;
-            }
+import Axios from 'axios';
+
+export default {
+    computed: {
+        titleState() {
+            return this.blog.title.length > 2 ? true : false;
         },
-        data() {
-            return {
-                blog: {
-                    title: '',
-                    content: '',
-                    selectedCategories: [],
-                    selectedAuthor: null,
-                    categories: [
-                        { text: 'Urban', value: 'urban' },
-                        { text: 'Pastoral', value: 'pastoral' },
-                        { text: 'Horror', value: 'horror' },
-                        { text: 'Thriller', value: 'thriller' },
-                        { text: 'Magical-Realism', value: 'mg-realism' },
-                    ],
-                    authors: [
-                        { value: null, text: 'Please select an option' },
-                        { value: "M. Duarte", text: 'Moisés Duarte' },
-                        { value: "I. Lafayette", text: 'Ilia Lafayette' },
-                        { value: "Anon", text: 'Anonymous' },
-                    ]
-                }
+        contentState() {
+            return this.blog.content.length > 2 ? true : false;
+        }
+    },
+    data() {
+        return {
+            blog: {
+                title: '',
+                content: '',
+                selectedCategories: [],
+                selectedAuthor: null,
+                categories: [
+                    { text: 'Urban', value: 'urban' },
+                    { text: 'Pastoral', value: 'pastoral' },
+                    { text: 'Horror', value: 'horror' },
+                    { text: 'Thriller', value: 'thriller' },
+                    { text: 'Magical-Realism', value: 'mg-realism' },
+                ],
+                authors: [
+                    { value: null, text: 'Please select an option' },
+                    { value: "M. Duarte", text: 'Moisés Duarte' },
+                    { value: "I. Lafayette", text: 'Ilia Lafayette' },
+                    { value: "Anon", text: 'Anonymous' },
+                ]
             }
         }
+    },
+    methods: {
+        submitPost : function() {
+            let url = '';
+            let data = {};
+
+            Axios.post(url, data)
+            .catch((err) => {
+                console.log(err);
+            })
+            .then((response) => {
+                console.log(response);
+            })
+        }
     }
+}
 </script>
 
 <style>
