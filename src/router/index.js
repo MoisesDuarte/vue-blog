@@ -12,7 +12,7 @@ const routes = [{
   {
     path: '/add',
     name: 'add',
-    component: () => import('../components/BlogAddForm.vue')
+    component: () => import('../views/AddPost.vue')
   }
 ]
 

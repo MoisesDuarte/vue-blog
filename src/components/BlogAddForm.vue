@@ -82,7 +82,6 @@ export default {
             })
         },
         resetPost : function() {
-
             this.blog.title = '';
             this.blog.selectedAuthor = null;
             this.blog.selectedCategories = [];
