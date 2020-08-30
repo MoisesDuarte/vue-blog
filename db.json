@@ -29,6 +29,16 @@
         "Magical-Realism"
       ],
       "content": "Morbi a placerat tellus. In nec nibh ligula. Vestibulum euismod, mi sit amet pulvinar congue, ex ex finibus velit, id elementum massa eros eu felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus vitae tempor erat, ac porttitor arcu. Fusce tellus neque, pharetra in orci quis, aliquam luctus velit. Nam sit amet varius sapien. "
+    },
+    {
+      "title": "Postagem para Teste",
+      "author": "Anonymous",
+      "categories": [
+        "Thriller",
+        "Magical-Realism"
+      ],
+      "content": "Curabitur consequat elit eget volutpat gravida. Sed leo orci, varius eu lectus a, auctor lobortis lectus. Pellentesque eget diam eget elit ultrices accumsan. Quisque sagittis, ligula a maximus tincidunt, urna velit luctus nunc, scelerisque lobortis nunc elit id libero. Fusce pellentesque in ex ac efficitur. Vivamus scelerisque ipsum et commodo gravida. Praesent eu congue lectus. Maecenas ullamcorper in diam ac tincidunt. Duis tincidunt ullamcorper tincidunt. Integer sit amet rutrum arcu, a aliquet nulla. Proin id dolor nec sem sollicitudin hendrerit. Mauris bibendum varius lorem sed eleifend. Morbi sit amet sapien metus. Nullam tempus diam in ligula eleifend, vitae aliquam arcu laoreet. ",
+      "id": 4
     }
   ]
 }

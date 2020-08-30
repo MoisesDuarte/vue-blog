@@ -18,7 +18,7 @@ export default {
     }
   },
   created() {
-    this.Axios.get('http://localhost:3000/posts')
+    this.Axios.get('http://localhost:3000/posts?_sort=id&_order=desc')
     .catch(err => {
       console.log(err);
     })
