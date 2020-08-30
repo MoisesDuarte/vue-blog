@@ -72,7 +72,7 @@ export default {
                 "Access-Control-Allow-Origin": "*"
             }
 
-            this.Axios.post('http://localhost:3000/posts', data, headers)
+            this.Axios.post('https://my-json-server.typicode.com/MoisesDuarte/vue-blog/posts', data, headers)
             .catch((err) => {
                 console.log(err);
             })

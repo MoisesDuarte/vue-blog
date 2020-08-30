@@ -22,7 +22,7 @@ export default {
   },
   methods: {
       getPosts : function() {
-        this.Axios.get('http://localhost:3000/posts?_page=1&_limit=5')
+        this.Axios.get('https://my-json-server.typicode.com/MoisesDuarte/vue-blog/posts?_page=1&_limit=5')
         .catch(err => {
             console.log(err);
         })
@@ -32,7 +32,7 @@ export default {
         })
       },
       deletePost : function(blogId) {
-          this.Axios.delete(`http://localhost:3000/posts/${blogId}`)
+          this.Axios.delete(`https://my-json-server.typicode.com/MoisesDuarte/vue-blog/posts/${blogId}`)
           .catch(err => {
               console.log(err);
           })
