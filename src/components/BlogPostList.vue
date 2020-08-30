@@ -22,13 +22,13 @@ export default {
   },
   methods: {
       getPosts : function() {
-        this.Axios.get('http://localhost:3000/posts')
+        this.Axios.get('http://localhost:3000/posts?_page=1&_limit=5')
         .catch(err => {
             console.log(err);
         })
         .then(response => {
             console.log(response);
-            this.blogs = response.data.slice(0, 5);
+            this.blogs = response.data;
         })
       },
       deletePost : function(blogId) {
