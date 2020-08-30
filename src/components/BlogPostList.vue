@@ -1,5 +1,7 @@
 <template> 
     <div id="BlogPostList">
+        <div v-if="loading" class="text-center mt-4"><b-spinner variant="primary" label="Spinning"></b-spinner></div>
+
         <b-card v-for="blog in blogs" :key="blog.id" :title="blog.title" :sub-title="blog.author" class="mt-3 mb-3">
             <b-card-text>
                 <p><b-badge v-for="category in blog.categories" :key='category' pill variant="primary">{{category}}</b-badge></p>
@@ -14,7 +16,8 @@
 export default {
   data() {
     return {
-      blogs: []
+      blogs: [],
+      loading: true
     }
   },
   created() {
@@ -29,6 +32,7 @@ export default {
         .then(response => {
             console.log(response);
             this.blogs = response.data;
+            this.loading = false;
         })
       },
       deletePost : function(blogId) {
