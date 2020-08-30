@@ -4,7 +4,7 @@
 
         <b-card v-for="blog in blogs" :key="blog.id" :title="blog.title" :sub-title="blog.author" class="mt-3 mb-3">
             <b-card-text>
-                <p><b-badge v-for="category in blog.categories" :key='category' pill variant="primary">{{category}}</b-badge></p>
+                <p><b-badge v-for="category in blog.categories" :key='category' pill variant="primary" class="mr-1">{{category}}</b-badge></p>
                 <p>{{blog.content}}</p>
             </b-card-text>
             <b-button v-on:click.prevent="deletePost(blog.id)" variant="outline-danger" class="float-right"><b-icon-trash/> Delete</b-button>
