@@ -5,6 +5,7 @@
                 <p><b-badge v-for="category in blog.categories" :key='category' pill variant="primary">{{category}}</b-badge></p>
                 <p>{{blog.content}}</p>
             </b-card-text>
+            <b-button variant="outline-danger" class="float-right"><b-icon-trash/> Delete</b-button>
         </b-card>
     </div>
 </template>
