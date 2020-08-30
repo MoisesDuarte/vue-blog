@@ -1,7 +1,7 @@
 {
   "posts": [
     {
-      "id": 1,
+      "id": 0,
       "title": "Post One",
       "author": "Anonymous",
       "categories": [
@@ -11,7 +11,7 @@
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat sem a nibh euismod, bibendum accumsan nisl tincidunt. Etiam ut vulputate felis. Aliquam sollicitudin fermentum ultricies. Vestibulum bibendum, massa vel egestas consequat, ipsum lorem dignissim est, eget congue velit dui ac felis. Sed imperdiet vestibulum tincidunt. Suspendisse magna lectus, lacinia id hendrerit et, faucibus at odio. Quisque ornare varius dui. Suspendisse laoreet mi eu risus efficitur cursus non quis leo. "
     },
     {
-      "id": 2,
+      "id": 1,
       "title": "Post Two",
       "author": "Moisés Duarte",
       "categories": [
@@ -21,7 +21,7 @@
       "content": "Sed in ante dapibus dui viverra tristique eget id ipsum. Nulla congue quam nec magna luctus pharetra. Cras est mauris, hendrerit quis imperdiet sed, semper vitae tortor. Vestibulum orci neque, laoreet ac convallis eget, commodo at ante. In placerat molestie sem sed feugiat. Nam viverra interdum mauris eget aliquet. Integer dignissim risus molestie libero sollicitudin blandit sed condimentum massa. Duis vitae nisi tempor, lacinia dolor ut, venenatis diam."
     },
     {
-      "id": 3,
+      "id": 2,
       "title": "Post Three",
       "author": "Moisés Duarte",
       "categories": [
