@@ -7,7 +7,7 @@
                 <p><b-badge v-for="category in blog.categories" :key='category' pill variant="primary" class="mr-1">{{category}}</b-badge></p>
                 <p>{{blog.content}}</p>
             </b-card-text>
-            <b-button v-on:click.prevent="deletePost(blog.id)" variant="outline-danger" class="float-right"><b-icon-trash/> Delete</b-button>
+            <b-button v-on:click.prevent="deletePost(blog.id)" variant="outline-danger" class="float-right"><b-spinner v-if="deleting" small label="Small Spinner"></b-spinner><b-icon-trash v-if="!deleting" /> Delete</b-button>
         </b-card>
     </div>
 </template>
@@ -17,7 +17,8 @@ export default {
   data() {
     return {
       blogs: [],
-      loading: true
+      loading: true,
+      deleting: false,
     }
   },
   created() {
@@ -36,6 +37,7 @@ export default {
         })
       },
       deletePost : function(blogId) {
+          this.deleting = true;
           this.Axios.delete(`https://my-json-server.typicode.com/MoisesDuarte/vue-blog/posts/${blogId}`)
           .catch(err => {
               console.log(err);
@@ -46,6 +48,8 @@ export default {
               // Removing from local array
               var removeIndex = this.blogs.map(function(item) { return item.id }).indexOf(blogId);
               this.blogs.splice(removeIndex, 1);
+
+              this.deleting = false;
           })
       }
   }
