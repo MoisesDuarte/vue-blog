@@ -1,37 +1,27 @@
 <template>
     <b-container fluid class="mt-4">   
-        <!-- BLOG POSTING FORM -->
         <h2 class="lead text-center">Add a New Blog Post</h2>
-        <!-- Title -->
+
         <b-form-group label="Blog Title:" label-for="blog-title">
-            <b-form-input id="blog-title" v-model="blog.title" :state="titleState" lazy required></b-form-input>
+            <b-form-input id="blog-title" v-model="post.title" :state="titleState" lazy required></b-form-input>
         </b-form-group>
-        <!-- Author -->
+
         <b-form-group label="Author:">
-            <b-form-select v-model="blog.selectedAuthor" :options="authors"></b-form-select>
+            <b-form-select v-model="post.selectedAuthor" :options="authors"></b-form-select>
         </b-form-group>
-        <!-- Category -->
+
         <b-form-group label="Categories:">
-            <b-form-checkbox-group id="blog-category" v-model="blog.selectedCategories" :options="categories"></b-form-checkbox-group>
+            <b-form-checkbox-group id="post-category" v-model="post.selectedCategories" :options="categories"></b-form-checkbox-group>
         </b-form-group>
-        <!-- Content -->
+
         <b-form-group label="Blog Content:" label-for="blog-content">
-            <b-form-textarea id="blog-content" size="sm" v-model="blog.content" lazy required></b-form-textarea>
+            <b-form-textarea id="blog-content" size="sm" v-model="post.content" lazy required></b-form-textarea>
         </b-form-group>
-        <!-- Submit Button -->
+
         <b-button class="mr-2" variant="success" v-on:click="createPost">Submit</b-button>
         <b-button type="reset" variant="danger" v-on:click.prevent="resetPost">Reset</b-button>
 
-        <!-- REQUEST SUCCESS ALERT -->
         <b-alert v-if="submitted" show variant="success">Blog posted sucessfully!</b-alert>
-
-        <!-- PREVIEW CARD -->
-        <b-card class="mt-3" header="Blog Preview" :title="blog.title" :subTitle="blog.selectedAuthor">
-            <b-card-text>
-                <p><b-badge pill variant="primary" v-for="category in blog.selectedCategories" :key="category" class="mr-1">{{ category }}</b-badge></p>
-                <p>{{ blog.content }}</p>
-            </b-card-text>
-        </b-card>
     </b-container>
 </template>
 
@@ -41,12 +31,12 @@ import PostService from '../PostService'
 export default {
     computed: {
         titleState() {
-            return this.blog.title.length > 2 ? true : false;
+            return this.post.title.length > 2 ? true : false;
         },
     },
     data() {
         return {
-            blog: {
+            post: {
                 title: '',
                 selectedAuthor: null,   
                 selectedCategories: [],
@@ -60,20 +50,20 @@ export default {
     methods: {
         async createPost() {
             let data = {
-                title: this.blog.title,
-                author: this.blog.selectedAuthor,
-                categories: this.blog.selectedCategories,
-                content: this.blog.content
+                title: this.post.title,
+                author: this.post.selectedAuthor,
+                categories: this.post.selectedCategories,
+                content: this.post.content
             }
 
             await PostService.insertPost(data);
             this.posts = await PostService.getPosts();
         },
         resetPost : function() {
-            this.blog.title = '';
-            this.blog.selectedAuthor = null;
-            this.blog.selectedCategories = [];
-            this.blog.content = '';
+            this.post.title = '';
+            this.post.selectedAuthor = null;
+            this.post.selectedCategories = [];
+            this.post.content = '';
         }
     }
 }
