@@ -30,7 +30,7 @@
         <!-- PREVIEW CARD -->
         <b-card class="mt-3" header="Blog Preview" :title="blog.title" :subTitle="blog.selectedAuthor">
             <b-card-text>
-                <p><b-badge pill variant="primary" v-for="category in blog.selectedCategories" :key="category">{{ category }}</b-badge></p>
+                <p><b-badge pill variant="primary" v-for="category in blog.selectedCategories" :key="category" class="mr-1">{{ category }}</b-badge></p>
                 <p>{{ blog.content }}</p>
             </b-card-text>
         </b-card>
@@ -72,7 +72,7 @@ export default {
                 "Access-Control-Allow-Origin": "*"
             }
 
-            this.Axios.post('http://localhost:3000/posts', data, headers)
+            this.Axios.post('https://my-json-server.typicode.com/MoisesDuarte/vue-blog/posts', data, headers)
             .catch((err) => {
                 console.log(err);
             })
