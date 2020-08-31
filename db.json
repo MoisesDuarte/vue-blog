@@ -1,16 +1,6 @@
 {
   "posts": [
     {
-      "id": 0,
-      "title": "Post One",
-      "author": "Anonymous",
-      "categories": [
-        "Horror",
-        "Urban"
-      ],
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat sem a nibh euismod, bibendum accumsan nisl tincidunt. Etiam ut vulputate felis. Aliquam sollicitudin fermentum ultricies. Vestibulum bibendum, massa vel egestas consequat, ipsum lorem dignissim est, eget congue velit dui ac felis. Sed imperdiet vestibulum tincidunt. Suspendisse magna lectus, lacinia id hendrerit et, faucibus at odio. Quisque ornare varius dui. Suspendisse laoreet mi eu risus efficitur cursus non quis leo. "
-    },
-    {
       "id": 1,
       "title": "Post Two",
       "author": "Moisés Duarte",
@@ -21,24 +11,14 @@
       "content": "Sed in ante dapibus dui viverra tristique eget id ipsum. Nulla congue quam nec magna luctus pharetra. Cras est mauris, hendrerit quis imperdiet sed, semper vitae tortor. Vestibulum orci neque, laoreet ac convallis eget, commodo at ante. In placerat molestie sem sed feugiat. Nam viverra interdum mauris eget aliquet. Integer dignissim risus molestie libero sollicitudin blandit sed condimentum massa. Duis vitae nisi tempor, lacinia dolor ut, venenatis diam."
     },
     {
-      "id": 2,
-      "title": "Post Three",
+      "title": "Titulo",
       "author": "Moisés Duarte",
       "categories": [
         "Urban",
-        "Magical-Realism"
+        "Pastoral"
       ],
-      "content": "Morbi a placerat tellus. In nec nibh ligula. Vestibulum euismod, mi sit amet pulvinar congue, ex ex finibus velit, id elementum massa eros eu felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus vitae tempor erat, ac porttitor arcu. Fusce tellus neque, pharetra in orci quis, aliquam luctus velit. Nam sit amet varius sapien. "
-    },
-    {
-      "title": "Postagem para Teste",
-      "author": "Anonymous",
-      "categories": [
-        "Thriller",
-        "Magical-Realism"
-      ],
-      "content": "Curabitur consequat elit eget volutpat gravida. Sed leo orci, varius eu lectus a, auctor lobortis lectus. Pellentesque eget diam eget elit ultrices accumsan. Quisque sagittis, ligula a maximus tincidunt, urna velit luctus nunc, scelerisque lobortis nunc elit id libero. Fusce pellentesque in ex ac efficitur. Vivamus scelerisque ipsum et commodo gravida. Praesent eu congue lectus. Maecenas ullamcorper in diam ac tincidunt. Duis tincidunt ullamcorper tincidunt. Integer sit amet rutrum arcu, a aliquet nulla. Proin id dolor nec sem sollicitudin hendrerit. Mauris bibendum varius lorem sed eleifend. Morbi sit amet sapien metus. Nullam tempus diam in ligula eleifend, vitae aliquam arcu laoreet. ",
-      "id": 4
+      "content": "Lorem ipsum ent dolor.",
+      "id": 2
     }
   ]
 }

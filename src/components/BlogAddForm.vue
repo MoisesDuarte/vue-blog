@@ -2,27 +2,25 @@
     <b-container fluid class="mt-4">   
         <!-- BLOG POSTING FORM -->
         <h2 class="lead text-center">Add a New Blog Post</h2>
-        <b-form v-if="!submitted"> 
-            <!-- Title -->
-            <b-form-group label="Blog Title:" label-for="blog-title">
-                <b-form-input id="blog-title" v-model="blog.title" :state="titleState" lazy required></b-form-input>
-            </b-form-group>
-            <!-- Author -->
-            <b-form-group label="Author:">
-                <b-form-select v-model="blog.selectedAuthor" :options="authors"></b-form-select>
-            </b-form-group>
-            <!-- Category -->
-            <b-form-group label="Categories:">
-                <b-form-checkbox-group id="blog-category" v-model="blog.selectedCategories" :options="categories"></b-form-checkbox-group>
-            </b-form-group>
-            <!-- Content -->
-            <b-form-group label="Blog Content:" label-for="blog-content">
-                <b-form-textarea id="blog-content" size="sm" v-model="blog.content" lazy required></b-form-textarea>
-            </b-form-group>
-            <!-- Submit Button -->
-            <b-button class="mr-2" variant="success" v-on:click.prevent="submitPost">Submit</b-button>
-            <b-button type="reset" variant="danger" v-on:click.prevent="resetPost">Reset</b-button>
-        </b-form>
+        <!-- Title -->
+        <b-form-group label="Blog Title:" label-for="blog-title">
+            <b-form-input id="blog-title" v-model="blog.title" :state="titleState" lazy required></b-form-input>
+        </b-form-group>
+        <!-- Author -->
+        <b-form-group label="Author:">
+            <b-form-select v-model="blog.selectedAuthor" :options="authors"></b-form-select>
+        </b-form-group>
+        <!-- Category -->
+        <b-form-group label="Categories:">
+            <b-form-checkbox-group id="blog-category" v-model="blog.selectedCategories" :options="categories"></b-form-checkbox-group>
+        </b-form-group>
+        <!-- Content -->
+        <b-form-group label="Blog Content:" label-for="blog-content">
+            <b-form-textarea id="blog-content" size="sm" v-model="blog.content" lazy required></b-form-textarea>
+        </b-form-group>
+        <!-- Submit Button -->
+        <b-button class="mr-2" variant="success" v-on:click="createPost">Submit</b-button>
+        <b-button type="reset" variant="danger" v-on:click.prevent="resetPost">Reset</b-button>
 
         <!-- REQUEST SUCCESS ALERT -->
         <b-alert v-if="submitted" show variant="success">Blog posted sucessfully!</b-alert>
@@ -38,6 +36,8 @@
 </template>
 
 <script>
+import PostService from '../PostService'
+
 export default {
     computed: {
         titleState() {
@@ -58,8 +58,7 @@ export default {
         }
     },
     methods: {
-        submitPost : function() {
-            // TODO: Should validate the form first here (maybe an future dependency)
+        async createPost() {
             let data = {
                 title: this.blog.title,
                 author: this.blog.selectedAuthor,
@@ -67,19 +66,8 @@ export default {
                 content: this.blog.content
             }
 
-            let headers = {
-                'Content-Type': 'application/json;charset=UTF-8',
-                "Access-Control-Allow-Origin": "*"
-            }
-
-            this.Axios.post('https://my-json-server.typicode.com/MoisesDuarte/vue-blog/posts', data, headers)
-            .catch((err) => {
-                console.log(err);
-            })
-            .then(response => {
-                console.log(response);
-                this.submitted = true;
-            })
+            await PostService.insertPost(data);
+            this.posts = await PostService.getPosts();
         },
         resetPost : function() {
             this.blog.title = '';
