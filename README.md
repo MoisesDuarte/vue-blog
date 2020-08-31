@@ -4,6 +4,9 @@
 
 Blog layout made in Vue.js, utilizing the BootstrapVue component library
 
+## Todo
+- Set up loading state for forms
+
 ## Commands
 
 | Command       | Function               |
